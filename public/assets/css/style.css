@@ -81,7 +81,7 @@ footer.site a:hover{color:var(--gold)}
 .notfound h1{font-size:4rem;color:var(--navy)}
 .to-top{position:fixed;right:1.1rem;bottom:1.1rem;width:44px;height:44px;border-radius:50%;border:0;background:var(--navy);color:var(--gold);font-size:1.25rem;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:80;transition:transform .15s}
 .to-top:hover{transform:translateY(-3px)}
-.search-overlay{position:fixed;inset:0;background:rgba(8,18,32,.74);backdrop-filter:blur(5px);z-index:90;display:flex;flex-direction:column;align-items:center;padding:9vh 1rem 2rem}
+.search-overlay{position:fixed;inset:0;background:rgba(8,18,32,.74);backdrop-filter:blur(5px);z-index:90;display:flex;flex-direction:column;align-items:center;padding:9vh 1rem 2rem}.search-overlay[hidden]{display:none!important}
 .search-box{width:min(640px,100%);display:flex;gap:.5rem;background:#fff;border-radius:14px;padding:.55rem .7rem;box-shadow:0 10px 40px rgba(0,0,0,.4)}
 .search-box input{flex:1;border:0;outline:0;font-size:1.05rem;background:transparent;color:#111}
 .search-box input::placeholder{color:#889}
