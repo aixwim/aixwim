@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aixwim.github.io/aixwim/sitemap.xml
