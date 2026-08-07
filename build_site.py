@@ -612,6 +612,19 @@ Sitemap: {BASE}sitemap.xml
 FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0a2540"/><text x="50" y="68" font-size="52" font-family="Arial" font-weight="bold" fill="#ffd166" text-anchor="middle">A</text></svg>"""
 
 
+
+
+def sync_to_root() -> None:
+    """Salin isi public/ ke root repo (GitHub Pages serve dari root, bukan public/)."""
+    for item in OUT.rglob("*"):
+        if item.is_file():
+            rel = item.relative_to(OUT)
+            dest = ROOT / rel
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(item.read_bytes())
+    print("✅ public/ disinkronkan ke root (Pages serve dari root)")
+
+
 # ---------------------------------------------------------------- build
 def build() -> None:
     d = load_data()
@@ -638,6 +651,8 @@ def build() -> None:
     (OUT / "404.html").write_text(render_404(d), encoding="utf-8")
     (OUT / "favicon.svg").write_text(FAVICON, encoding="utf-8")
     (OUT / "assets" / "css" / "style.css").write_text(CSS, encoding="utf-8")
+
+    sync_to_root()
 
     total = sum(f.stat().st_size for f in OUT.rglob("*") if f.is_file())
     print(f"✅ Build selesai: {len(d['articles'])} artikel, {len(d['categories'])} kategori, "
