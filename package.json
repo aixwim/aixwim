@@ -1,0 +1,17 @@
+{
+  "name": "aixwim-news",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Aixwim News — portal berita Indonesia (Next.js static export)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/generate-rss.mjs && next build && node scripts/strip-next.mjs",
+    "start": "next start",
+    "article": "node scripts/add-article.mjs"
+  },
+  "dependencies": {
+    "next": "^15.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,37 +1,27 @@
-# Aixwim News — Portal Berita Indonesia Autopilot
+# Aixwim News
 
-Portal berita statis berbahasa Indonesia — **cepat (Pagespeed 100), SEO lengkap, dan dikelola otomatis**.
+Portal berita Indonesia — dibangun dengan **Next.js 15** (static export), tanpa autopilot.
 
-## Arsitektur
+## Stack
+- Next.js (App Router, `output: 'export'`) → HTML statis di `docs/`
+- GitHub Pages (source: `main` branch, folder `/docs`)
+- Konten: `data/articles.json` (file-based CMS)
 
-```
-data/articles.json   ← Master data berita (engine autopilot menulis di sini)
-build_site.py        ← Static site builder (Python stdlib, tanpa dependensi)
-public/              ← Output build
-/                    ← Root = output live (GitHub Pages serve dari root)
-```
-
-## Build
-
+## Perintah
 ```bash
-python3 build_site.py
-# → public/index.html, artikel/*.html, kategori/*.html,
-#   sitemap.xml, rss.xml, robots.txt, 404.html, favicon.svg
+npm install          # install dependencies
+npm run dev          # dev server
+npm run build        # generate rss.xml + next build + strip runtime JS → docs/
+npm run article -- "Topik berita"   # (opsional) tulis artikel via TERAI lalu append data
 ```
 
-## Keunggulan
+## Tambah Artikel (manual)
+1. Edit `data/articles.json` (ikuti skema artikel yang ada) **atau**
+2. `npm run article -- "judul topik"` → TERAI menulis → otomatis di-append
+3. `npm run build && git add -A && git commit -m "feat: artikel baru" && git push`
 
-- **1 request per halaman** — CSS inline, tanpa JS, tanpa font eksternal
-- **SEO penuh** — JSON-LD NewsArticle, OG/Twitter, canonical, sitemap dinamis, RSS
-- **Semantik** — HTML5 `article/main/nav/time`, breadcrumb, aria-label
-- **Dark mode** otomatis via `prefers-color-scheme`
-- **Autopilot** — pipeline GitHub Actions menambah artikel → build → deploy otomatis
-
-## Alur Autopilot
-
-1. Engine generate artikel → tambah ke `data/articles.json`
-2. `python3 build_site.py` → render ulang seluruh situs
-3. Sync `public/` → root → commit → push
-4. GitHub Pages rebuild otomatis
-
-© 2026 Aixwim News — Berita Indonesia Terpercaya, Cepat, dan Akurat
+## Fitur
+- 10 artikel, 5 kategori, pencarian real-time (tanpa JS eksternal)
+- JSON-LD: NewsArticle, BreadcrumbList, WebSite+SearchAction
+- RSS, sitemap, robots.txt, 404 custom, dark mode, share buttons
+- **1 request per halaman** (CSS/JS inline, tanpa dependensi eksternal) → Pagespeed optimal
