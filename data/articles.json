@@ -1,0 +1,140 @@
+{
+  "site": {
+    "name": "Aixwim News",
+    "tagline": "Berita Indonesia Terpercaya, Cepat, dan Akurat",
+    "base_url": "https://aixwim.github.io/aixwim/",
+    "language": "id",
+    "description": "Portal berita Indonesia terpercaya: ekonomi, teknologi, nasional, bisnis, dan pendidikan. Disajikan cepat, akurat, dan independen.",
+    "editor": "Redaksi Aixwim News",
+    "established": "2026"
+  },
+  "categories": [
+    {"slug": "ekonomi", "name": "Ekonomi", "description": "Makroekonomi, keuangan, dan pasar"},
+    {"slug": "teknologi", "name": "Teknologi", "description": "AI, startup, dan inovasi digital"},
+    {"slug": "nasional", "name": "Nasional", "description": "Kebijakan dan perkembangan nasional"},
+    {"slug": "bisnis", "name": "Bisnis", "description": "Korporasi, UMKM, dan investasi"},
+    {"slug": "pendidikan", "name": "Pendidikan", "description": "Kurikulum dan dunia pendidikan"}
+  ],
+  "articles": [
+    {
+      "slug": "ekonomi-digital-indonesia-tumbuh-12-persen-2026",
+      "title": "Ekonomi Digital Indonesia Tumbuh 12 Persen di 2026, Dorong UMKM Naik Kelas",
+      "excerpt": "Nilai transaksi ekonomi digital Indonesia diproyeksikan menembus Rp 2.400 triliun tahun ini, ditopang lonjakan adopsi pembayaran digital oleh pelaku UMKM.",
+      "category": "ekonomi",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-07T08:30:00+07:00",
+      "reading_time": "4 menit",
+      "tags": ["ekonomi digital", "UMKM", "pembayaran digital"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Ekonomi digital Indonesia mencatat pertumbuhan 12 persen pada paruh pertama 2026, didorong oleh meningkatnya adopsi pembayaran digital dan perluasan akses internet hingga ke daerah terpencil. Angka ini lebih tinggi dibandingkan pertumbuhan 9,8 persen pada periode yang sama tahun lalu.",
+        "Menteri Koordinator Bidang Perekonomian dalam keterangannya di Jakarta, Kamis, menyebut transformasi digital telah menjadi tulang punggung pertumbuhan inklusif. \"Lebih dari 32 juta UMKM kini telah bergabung dalam ekosistem digital, naik signifikan dari 19 juta pada 2024,\" ujarnya.",
+        "Data Kementerian Komunikasi dan Digital menunjukkan nilai transaksi e-commerce mencapai Rp 610 triliun pada semester pertama 2026. Pembayaran digital melalui QRIS mencatat volume 2,1 miliar transaksi, tumbuh 65 persen dibandingkan tahun sebelumnya.",
+        "Ekonom senior dari Center of Economic Studies menilai pertumbuhan ini didukung oleh tiga faktor utama: infrastruktur digital yang membaik, literasi keuangan yang meningkat, serta kebijakan insentif pajak bagi startup dan pelaku usaha kecil.",
+        "Pemerintah menargetkan 40 juta UMKM terdigitalisasi pada akhir 2027. Program pendampingan dan pelatihan digital gratis akan diperluas ke 514 kabupaten dan kota, dengan fokus pada akses permodalan melalui Kredit Usaha Rakyat digital.",
+        "Kendati optimistis, para pengamat mengingatkan pentingnya menjaga keamanan siber dan perlindungan data konsumen agar pertumbuhan ekonomi digital tidak diikuti meningkatnya risiko penipuan daring. Regulasi Perlindungan Data Pribadi (UU PDP) diharapkan menjadi payung hukum yang memperkuat kepercayaan publik."
+      ],
+      "related": ["startup-indonesia-pendanaan-25-triliun-2026", "rupiah-menguat-inflasi-28-persen"]
+    },
+    {
+      "slug": "program-ai-nasional-100-ribu-talenta-2027",
+      "title": "Pemerintah Luncurkan Program AI Nasional, Target 100 Ribu Talenta pada 2027",
+      "excerpt": "Program AI Nasional mencakup pelatihan massal, pendanaan riset, dan pembangunan pusat data sovereign sebagai fondasi kedaulatan digital.",
+      "category": "nasional",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-06T10:15:00+07:00",
+      "reading_time": "5 menit",
+      "tags": ["AI", "talenta digital", "kedaulatan digital"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Pemerintah resmi meluncurkan Program AI Nasional 2026-2030, sebuah inisiatif besar untuk membangun ekosistem kecerdasan artifisial yang mandiri dan berdaya saing global. Program ini menargetkan pembentukan 100 ribu talenta AI profesional pada 2027.",
+        "Presiden dalam pidato peluncurannya di Istana Negara, Kamis, menegaskan bahwa AI bukan lagi pilihan melainkan kebutuhan strategis. \"Kita tidak boleh menjadi penonton di era AI. Indonesia harus menjadi pemain utama di kawasan,\" ujarnya di hadapan ratusan akademisi dan pelaku industri.",
+        "Program ini mencakup tiga pilar utama: pertama, pelatihan massal bersertifikat yang melibatkan 200 perguruan tinggi; kedua, dana riset terapan senilai Rp 5 triliun untuk universitas dan startup; ketiga, pembangunan pusat data sovereign berkapasitas 500 megawatt sebagai tulang punggung komputasi AI nasional.",
+        "Kementerian Pendidikan Tinggi akan memasukkan kurikulum AI ke jenjang sarjana mulai 2027, sementara Kementerian Ketenagakerjaan menyiapkan skema reskilling bagi 250 ribu pekerja terdampak otomasi. Skema ini bekerja sama dengan platform global dan asosiasi industri.",
+        "Kalangan pelaku industri menyambut positif program ini. Ketua Asosiasi AI Indonesia menilai ketersediaan talenta adalah hambatan terbesar pertumbuhan AI lokal selama ini. \"Dengan target 100 ribu talenta, Indonesia bisa memenuhi kebutuhan 70 persen talenta AI secara mandiri pada 2029,\" katanya.",
+        "Pemerintah juga menyiapkan peta jalan etika AI dan tata kelola data yang selaras dengan nilai-nilai kebangsaan. Badan AI Nasional akan dibentuk untuk mengoordinasikan seluruh inisiatif, termasuk audit algoritma dan perlindungan hak cipta konten yang dihasilkan AI."
+      ],
+      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "kurikulum-ai-masuk-sekolah-2027"]
+    },
+    {
+      "slug": "rupiah-menguat-inflasi-28-persen",
+      "title": "Rupiah Menguat ke Rp 15.400, Inflasi Terkendali di 2,8 Persen",
+      "excerpt": "Nilai tukar rupiah menguat 1,2 persen dalam sepekan seiring arus modal asing masuk, sementara inflasi tahunan tetap berada dalam sasaran bank sentral.",
+      "category": "ekonomi",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-05T09:00:00+07:00",
+      "reading_time": "3 menit",
+      "tags": ["rupiah", "inflasi", "bank sentral"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Nilai tukar rupiah menguat ke level Rp 15.400 per dolar AS pada perdagangan Rabu, naik 1,2 persen dalam sepekan terakhir. Penguatan ini didorong arus modal asing yang kembali masuk ke pasar obligasi dan saham domestik.",
+        "Kepala Departemen Pengelolaan Moneter Bank Indonesia menyatakan penguatan rupiah mencerminkan kepercayaan investor terhadap fundamental ekonomi. Sepanjang tahun berjalan, investor asing mencatat pembelian bersih senilai Rp 89 triliun di pasar Surat Berharga Negara.",
+        "Di sisi inflasi, Badan Pusat Statistik melaporkan inflasi tahunan sebesar 2,8 persen pada Juli 2026, tetap berada di dalam sasaran bank sentral sebesar 2,5±1 persen. Inflasi inti tercatat 2,4 persen, menunjukkan tekanan permintaan yang stabil.",
+        "Ekonom dari Lembaga Penyelidikan Ekonomi dan Masyarakat menilai kombinasi inflasi rendah dan penguatan mata uang memberi ruang bagi pelonggaran moneter lebih lanjut. \"Suku bunga acuan masih berpeluang turun 25 basis poin pada kuartal IV,\" ungkapnya.",
+        "Meski demikian, volatilitas global tetap menjadi risiko utama. Bank Indonesia akan terus melakukan intervensi pasar untuk menjaga stabilitas nilai tukar sesuai fundamental, termasuk melalui operasi moneter dan instrumen Sekuritas Rupiah Bank Indonesia.",
+        "Pemerintah optimistis momentum penguatan rupiah akan berlanjut hingga akhir tahun seiring membaiknya neraca perdagangan dan realisasi investasi asing yang ditargetkan tumbuh 18 persen pada 2026."
+      ],
+      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "industri-game-indonesia-ekspor-naik-45"]
+    },
+    {
+      "slug": "startup-indonesia-pendanaan-25-triliun-2026",
+      "title": "Startup Indonesia Catat Pendanaan Rp 25 Triliun di Semester I 2026",
+      "excerpt": "Fintech, AI, dan logistik mendominasi pendanaan startup Indonesia sepanjang semester pertama 2026, menandakan kepercayaan investor global yang kian kuat.",
+      "category": "bisnis",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-04T14:20:00+07:00",
+      "reading_time": "4 menit",
+      "tags": ["startup", "pendanaan", "venture capital"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Startup Indonesia mencatat total pendanaan sebesar Rp 25 triliun pada semester pertama 2026, tumbuh 28 persen dibandingkan periode yang sama tahun lalu. Sektor fintech, kecerdasan artifisial, dan logistik menjadi tiga besar penerima dana.",
+        "Laporan lembaga riset ekosistem startup menunjukkan terdapat 87 putaran pendanaan yang tercatat, dengan nilai rata-rata Rp 287 miliar per putaran. Lima unicorn baru berhasil mencapai status tersebut sepanjang tahun ini, menjadikan total unicorn Indonesia menjadi 18 perusahaan.",
+        "Investor global semakin agresif masuk pasar Indonesia. Sebanyak 62 persen dari total pendanaan berasal dari investor asing, dengan negara asal utama Singapura, Amerika Serikat, dan Jepang. Fenomena ini didorong oleh fundamental ekonomi digital yang kuat dan populasi muda yang melek teknologi.",
+        "Ketua Umum Asosiasi Modal Ventura Indonesia menyebut kebijakan pemerintah yang pro-inovasi, termasuk insentif pajak dan kemudahan lisensi, menjadi faktor penarik investasi. \"Indonesia kini dipandang sebagai pasar terpanas kedua di Asia setelah India,\" tuturnya.",
+        "Ia menambahkan, tren pendanaan mulai bergeser ke perusahaan deep-tech dan AI terapan untuk sektor agrikultur, kesehatan, dan pendidikan. Model bisnis yang mengedepankan profitabilitas lebih diminati dibandingkan pertumbuhan agresif yang merugi.",
+        "Para analis memperkirakan total pendanaan sepanjang 2026 akan menembus Rp 55 triliun, melampaui rekor 2021. Risiko utama yang perlu diwaspadai adalah persaingan talenta dan kepastian regulasi di tengah cepatnya adopsi AI di seluruh sektor."
+      ],
+      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "industri-game-indonesia-ekspor-naik-45"]
+    },
+    {
+      "slug": "kurikulum-ai-masuk-sekolah-2027",
+      "title": "Revolusi Pendidikan: Kurikulum AI Masuk Sekolah Menengah Mulai 2027",
+      "excerpt": "Kementerian Pendidikan mengintegrasikan literasi AI dan pemrograman dasar ke kurikulum sekolah menengah, membekali generasi muda menghadapi era otomasi.",
+      "category": "pendidikan",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-03T07:45:00+07:00",
+      "reading_time": "4 menit",
+      "tags": ["kurikulum", "AI", "sekolah"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Kementerian Pendidikan Dasar dan Menengah mengumumkan integrasi literasi kecerdasan artifisial ke dalam kurikulum sekolah menengah mulai tahun ajaran 2027. Mata pelajaran baru ini akan mencakup pengenalan AI, etika digital, dan pemrograman dasar.",
+        "Menteri Pendidikan dalam konferensi pers di Jakarta, Senin, menjelaskan bahwa kebijakan ini merupakan respons atas cepatnya transformasi dunia kerja. \"Generasi yang lahir di era digital harus memahami cara kerja AI, bukan sekadar menjadi pengguna pasif,\" ujarnya.",
+        "Kurikulum dirancang bertahap: kelas VII-VIII fokus pada literasi AI dan berpikir komputasional, kelas IX-XI mendalami pemrograman Python dan proyek AI sederhana, sementara kelas XII diarahkan pada kecakapan AI terapan dan kewirausahaan digital.",
+        "Untuk mendukung implementasi, pemerintah menyiapkan pelatihan bagi 500 ribu guru dalam tiga tahun serta pengadaan laboratorium komputer di 15 ribu sekolah. Platform pembelajaran daring gratis dengan konten berbahasa Indonesia juga akan diluncurkan awal 2027.",
+        "Praktisi pendidikan menyambut baik langkah ini namun mengingatkan kesenjangan infrastruktur antar daerah. Ketua Federasi Guru Indonesia meminta pemerintah memprioritaskan sekolah di daerah tertinggal agar kesenjangan digital tidak semakin melebar.",
+        "Kementerian menjamin penyediaan perangkat hybrid dan konten yang dapat diakses secara offline untuk sekolah di daerah tanpa jaringan stabil. Evaluasi berkala akan dilakukan setiap semester untuk memastikan efektivitas pembelajaran dan kesiapan guru di lapangan."
+      ],
+      "related": ["program-ai-nasional-100-ribu-talenta-2027", "ekonomi-digital-indonesia-tumbuh-12-persen-2026"]
+    },
+    {
+      "slug": "industri-game-indonesia-ekspor-naik-45",
+      "title": "Industri Game Indonesia Tembus Pasar Global, Ekspor Naik 45 Persen",
+      "excerpt": "Ekspor game buatan Indonesia tumbuh 45 persen pada 2026, didorong kesuksesan studio lokal menembus pasar Asia Tenggara, Jepang, dan Amerika Latin.",
+      "category": "teknologi",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-02T11:30:00+07:00",
+      "reading_time": "4 menit",
+      "tags": ["game", "industri kreatif", "ekspor"],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Industri game Indonesia mencatat pertumbuhan ekspor sebesar 45 persen pada paruh pertama 2026, mencapai nilai US$ 180 juta. Pencapaian ini menjadikan game sebagai salah satu penyumbang devisa terbesar dari sektor ekonomi kreatif.",
+        "Kementerian Pariwisata dan Ekonomi Kreatif melaporkan terdapat 1.200 studio game aktif di Indonesia, naik dari 800 studio pada 2024. Sebanyak 40 persen di antaranya kini fokus menembus pasar ekspor dengan konten bernuansa lokal yang dikemas secara global.",
+        "Game bergenre mobile dengan budaya Nusantara menjadi primadona di pasar Asia Tenggara, Jepang, dan Amerika Latin. Beberapa judul berhasil menembus 10 juta unduhan dan masuk daftar game terlaris di berbagai negara.",
+        "Kepala Badan Ekonomi Kreatif menyebut keberhasilan ini tidak terlepas dari program inkubasi studio game dan insentif fiskal yang diberikan pemerintah. \"Kami menargetkan ekspor game menembus US$ 500 juta pada 2029,\" ujarnya optimistis.",
+        "Pelaku industri menyoroti tantangan pendanaan tahap awal dan regenerasi talenta. Asosiasi Game Indonesia mendorong pembentukan program magang nasional yang menghubungkan 100 ribu lulusan SMK dan sarjana dengan studio game lokal.",
+        "Dengan dukungan ekosistem yang terus membaik, para pengamat meyakini Indonesia berpotensi menjadi hub game terbesar kedua di Asia Tenggara setelah Singapura dalam lima tahun ke depan."
+      ],
+      "related": ["startup-indonesia-pendanaan-25-triliun-2026", "ekonomi-digital-indonesia-tumbuh-12-persen-2026"]
+    }
+  ]
+}

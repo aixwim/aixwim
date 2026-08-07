@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aixwim.github.io/aixwim/</loc><lastmod>2026-08-08</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://aixwim.github.io/aixwim/subwebs/page_1.html</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://aixwim.github.io/aixwim/subwebs/page_2.html</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://aixwim.github.io/aixwim/subwebs/page_3.html</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://aixwim.github.io/aixwim/subwebs/page_4.html</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://aixwim.github.io/aixwim/subwebs/latest-ai-agents.html</loc><lastmod>2026-08-08</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/</loc><lastmod>2026-08-07</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/kategori/ekonomi.html</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/kategori/teknologi.html</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/kategori/nasional.html</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/kategori/bisnis.html</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/kategori/pendidikan.html</loc><lastmod>2026-08-07</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/ekonomi-digital-indonesia-tumbuh-12-persen-2026.html</loc><lastmod>2026-08-07</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/program-ai-nasional-100-ribu-talenta-2027.html</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/rupiah-menguat-inflasi-28-persen.html</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/startup-indonesia-pendanaan-25-triliun-2026.html</loc><lastmod>2026-08-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/kurikulum-ai-masuk-sekolah-2027.html</loc><lastmod>2026-08-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://aixwim.github.io/aixwim/artikel/industri-game-indonesia-ekspor-naik-45.html</loc><lastmod>2026-08-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

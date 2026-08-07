@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Aixwim News</title>
+  <link>https://aixwim.github.io/aixwim/</link>
+  <description>Portal berita Indonesia terpercaya: ekonomi, teknologi, nasional, bisnis, dan pendidikan. Disajikan cepat, akurat, dan independen.</description>
+  <language>id-id</language>
+  <lastBuildDate>Fri, 07 Aug 2026 08:30:00 +0700</lastBuildDate>
+  <atom:link href="https://aixwim.github.io/aixwim/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Ekonomi Digital Indonesia Tumbuh 12 Persen di 2026, Dorong UMKM Naik Kelas</title>
+      <link>https://aixwim.github.io/aixwim/artikel/ekonomi-digital-indonesia-tumbuh-12-persen-2026.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/ekonomi-digital-indonesia-tumbuh-12-persen-2026.html</guid>
+      <pubDate>Fri, 07 Aug 2026 08:30:00 +0700</pubDate>
+      <category>Ekonomi</category>
+      <description>Nilai transaksi ekonomi digital Indonesia diproyeksikan menembus Rp 2.400 triliun tahun ini, ditopang lonjakan adopsi pembayaran digital oleh pelaku UMKM.</description>
+    </item>    <item>
+      <title>Pemerintah Luncurkan Program AI Nasional, Target 100 Ribu Talenta pada 2027</title>
+      <link>https://aixwim.github.io/aixwim/artikel/program-ai-nasional-100-ribu-talenta-2027.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/program-ai-nasional-100-ribu-talenta-2027.html</guid>
+      <pubDate>Thu, 06 Aug 2026 10:15:00 +0700</pubDate>
+      <category>Nasional</category>
+      <description>Program AI Nasional mencakup pelatihan massal, pendanaan riset, dan pembangunan pusat data sovereign sebagai fondasi kedaulatan digital.</description>
+    </item>    <item>
+      <title>Rupiah Menguat ke Rp 15.400, Inflasi Terkendali di 2,8 Persen</title>
+      <link>https://aixwim.github.io/aixwim/artikel/rupiah-menguat-inflasi-28-persen.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/rupiah-menguat-inflasi-28-persen.html</guid>
+      <pubDate>Wed, 05 Aug 2026 09:00:00 +0700</pubDate>
+      <category>Ekonomi</category>
+      <description>Nilai tukar rupiah menguat 1,2 persen dalam sepekan seiring arus modal asing masuk, sementara inflasi tahunan tetap berada dalam sasaran bank sentral.</description>
+    </item>    <item>
+      <title>Startup Indonesia Catat Pendanaan Rp 25 Triliun di Semester I 2026</title>
+      <link>https://aixwim.github.io/aixwim/artikel/startup-indonesia-pendanaan-25-triliun-2026.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/startup-indonesia-pendanaan-25-triliun-2026.html</guid>
+      <pubDate>Tue, 04 Aug 2026 14:20:00 +0700</pubDate>
+      <category>Bisnis</category>
+      <description>Fintech, AI, dan logistik mendominasi pendanaan startup Indonesia sepanjang semester pertama 2026, menandakan kepercayaan investor global yang kian kuat.</description>
+    </item>    <item>
+      <title>Revolusi Pendidikan: Kurikulum AI Masuk Sekolah Menengah Mulai 2027</title>
+      <link>https://aixwim.github.io/aixwim/artikel/kurikulum-ai-masuk-sekolah-2027.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/kurikulum-ai-masuk-sekolah-2027.html</guid>
+      <pubDate>Mon, 03 Aug 2026 07:45:00 +0700</pubDate>
+      <category>Pendidikan</category>
+      <description>Kementerian Pendidikan mengintegrasikan literasi AI dan pemrograman dasar ke kurikulum sekolah menengah, membekali generasi muda menghadapi era otomasi.</description>
+    </item>    <item>
+      <title>Industri Game Indonesia Tembus Pasar Global, Ekspor Naik 45 Persen</title>
+      <link>https://aixwim.github.io/aixwim/artikel/industri-game-indonesia-ekspor-naik-45.html</link>
+      <guid isPermaLink="true">https://aixwim.github.io/aixwim/artikel/industri-game-indonesia-ekspor-naik-45.html</guid>
+      <pubDate>Sun, 02 Aug 2026 11:30:00 +0700</pubDate>
+      <category>Teknologi</category>
+      <description>Ekspor game buatan Indonesia tumbuh 45 persen pada 2026, didorong kesuksesan studio lokal menembus pasar Asia Tenggara, Jepang, dan Amerika Latin.</description>
+    </item>
+</channel>
+</rss>

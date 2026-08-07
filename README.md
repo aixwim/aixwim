@@ -1,16 +1,37 @@
-# Aixwim — Autonomous Programmatic SEO Network
+# Aixwim News — Portal Berita Indonesia Autopilot
 
-Aixwim is a production-ready, highly optimized multi-agent system consisting of 50 hierarchical agents and sub-agents running on Python's `asyncio` architecture. It automates keyword research, content drafting, technical optimization, sitemap generation, and deployment.
+Portal berita statis berbahasa Indonesia — **cepat (Pagespeed 100), SEO lengkap, dan dikelola otomatis**.
 
-## Architecture
-- **Director Tier:** Orchestration, Quota Management, Trend Scraping, SEO Strategy, Deployment.
-- **Content Tier:** Keyword Deep-Dive, Humanizer Writing, Fact-Checking, Snippet Optimization.
-- **Technical Tier:** Template Engine, Sub-Web Generator, Performance Optimization.
-- **Distribution Tier:** Internal Linking, Sitemap Indexing, Analytics Feedback.
+## Arsitektur
 
-## Running Locally (Termux)
+```
+data/articles.json   ← Master data berita (engine autopilot menulis di sini)
+build_site.py        ← Static site builder (Python stdlib, tanpa dependensi)
+public/              ← Output build
+/                    ← Root = output live (GitHub Pages serve dari root)
+```
+
+## Build
+
 ```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python main.py
+python3 build_site.py
+# → public/index.html, artikel/*.html, kategori/*.html,
+#   sitemap.xml, rss.xml, robots.txt, 404.html, favicon.svg
+```
+
+## Keunggulan
+
+- **1 request per halaman** — CSS inline, tanpa JS, tanpa font eksternal
+- **SEO penuh** — JSON-LD NewsArticle, OG/Twitter, canonical, sitemap dinamis, RSS
+- **Semantik** — HTML5 `article/main/nav/time`, breadcrumb, aria-label
+- **Dark mode** otomatis via `prefers-color-scheme`
+- **Autopilot** — pipeline GitHub Actions menambah artikel → build → deploy otomatis
+
+## Alur Autopilot
+
+1. Engine generate artikel → tambah ke `data/articles.json`
+2. `python3 build_site.py` → render ulang seluruh situs
+3. Sync `public/` → root → commit → push
+4. GitHub Pages rebuild otomatis
+
+© 2026 Aixwim News — Berita Indonesia Terpercaya, Cepat, dan Akurat
