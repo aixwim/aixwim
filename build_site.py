@@ -395,6 +395,19 @@ def render_index(d: dict) -> str:
 {"".join(blocks)}
 </div></main>
 {footer_html()}"""
+    website_ld = (
+        '<script type="application/ld+json">{"@context":"https://schema.org",'
+        '"@type":"WebSite","name":"' + d["site"]["name"] + '",'
+        '"alternateName":"Aixwim News Indonesia","url":"' + BASE + '",'
+        '"description":"' + d["site"]["description"] + '",'
+        '"inLanguage":"id",'
+        '"publisher":{"@type":"Organization","name":"' + d["site"]["name"] + '",'
+        '"logo":{"@type":"ImageObject","url":"' + BASE + 'favicon.svg"}},'
+        '"potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint",'
+        '"urlTemplate":"' + BASE + 'cari/?q={search_term_string}"},'
+        '"query-input":"required name=search_term_string"}}'
+        "</script>")
+    body += website_ld
     return page_shell(
         f"{d['site']['name']} — {d['site']['tagline']}",
         d["site"]["description"],
