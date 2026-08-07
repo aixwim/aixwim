@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-08-08T01:38:51+07:00",
+  "agent": "PerformanceOptimizerAgent_1",
+  "stats": {
+    "files": 25,
+    "html_kb": 381.7,
+    "total_kb": 406.2,
+    "saved_kb": 0.0
+  },
+  "pagespeed_note": "HTML murni 1 request/halaman, CSS inline"
+}

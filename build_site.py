@@ -28,6 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data" / "articles.json"
 OUT = ROOT / "public"
+SUBWEB_SRC = ROOT / "subwebs"
 
 BASE = "https://aixwim.github.io/aixwim/"
 
@@ -82,16 +83,18 @@ def build_head(title: str, desc: str, url: str, kind: str = "article") -> str:
 <link rel="canonical" href="{url}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0a2540">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a2540'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='%23ffd166' text-anchor='middle'>A</text></svg>">
+<link rel="icon" href="{BASE}favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="{kind}">
 <meta property="og:site_name" content="Aixwim News">
 <meta property="og:title" content="{escape(title)}">
 <meta property="og:description" content="{escape(desc)}">
 <meta property="og:url" content="{url}">
+<meta property="og:image" content="{BASE}favicon.svg">
 <meta property="og:locale" content="id_ID">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{escape(title)}">
 <meta name="twitter:description" content="{escape(desc)}">
+<meta name="twitter:image" content="{BASE}favicon.svg">
 """
 
 
@@ -321,9 +324,11 @@ def header_html(active: str = "") -> str:
 def footer_html() -> str:
     d = data()
     cats = "".join(f'<li><a href="kategori/{c["slug"]}.html">{escape(c["name"])}</a></li>' for c in d["categories"])
+    hubs = subweb_links()
     return f"""<footer class="site"><div class="wrap">
 <div><h4>{escape(d["site"]["name"])}</h4><p>{escape(d["site"]["tagline"])}</p></div>
 <div><h4>Kategori</h4><ul>{cats}</ul></div>
+<div><h4>Hub</h4><ul>{hubs}</ul></div>
 <div><h4>Tentang</h4><ul>
 <li><a href="index.html">Beranda</a></li>
 <li><a href="cari/index.html">Pencarian</a></li>
@@ -333,6 +338,25 @@ def footer_html() -> str:
 </div>
 <div class="copy">© {d["site"]["established"]} {escape(d["site"]["name"])} · {escape(d["site"]["editor"])} · Semua konten dilindungi hak cipta.</div>
 </footer>"""
+
+
+def subweb_links() -> str:
+    """Tautan ke halaman hub subweb (dari staging root/subwebs/)."""
+    if not SUBWEB_SRC.is_dir():
+        return ""
+    links = []
+    for f in sorted(SUBWEB_SRC.glob("*.html")):
+        slug = f.stem
+        name = slug.replace("hub-", "").replace("-", " ").title() or slug
+        links.append(f'<li><a href="subwebs/{escape(slug)}.html">{escape(name)}</a></li>')
+    return "".join(links)
+
+
+def subweb_urls() -> list[str]:
+    """Daftar URL subweb untuk sitemap (dari staging root/subwebs/)."""
+    if not SUBWEB_SRC.is_dir():
+        return []
+    return [f"{BASE}subwebs/{f.name}" for f in sorted(SUBWEB_SRC.glob("*.html"))]
 
 
 def hero_block(art: dict) -> str:
@@ -483,7 +507,7 @@ def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str
     pages = max(1, math.ceil(total / per_page))
     page = min(max(1, page), pages)
     slice_arts = arts[(page - 1) * per_page: page * per_page]
-    url = f"{BASE}kategori/{cat['slug']}.html"
+    url = f"{BASE}kategori/{cat['slug']}.html" if page == 1 else f"{BASE}kategori/{cat['slug']}-{page}.html"
     cards = "".join(card_html(a) for a in slice_arts)
     # pagination
     pag = ""
@@ -562,6 +586,8 @@ def render_sitemap(d: dict) -> str:
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     urls = [f"""  <url><loc>{BASE}</loc><lastmod>{now}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>"""]
     urls.append(f"""  <url><loc>{BASE}cari/</loc><lastmod>{now}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>""")
+    for u in subweb_urls():
+        urls.append(f"""  <url><loc>{u}</loc><lastmod>{now}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>""")
     for c in d["categories"]:
         urls.append(f"""  <url><loc>{BASE}kategori/{c['slug']}.html</loc><lastmod>{now}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>""")
     for a in arts:
@@ -629,13 +655,42 @@ FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect
 
 def sync_to_root() -> None:
     """Salin isi public/ ke root repo (GitHub Pages serve dari root, bukan public/)."""
-    for item in OUT.rglob("*"):
-        if item.is_file():
-            rel = item.relative_to(OUT)
-            dest = ROOT / rel
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_bytes(item.read_bytes())
+    # Bersihkan file situs lama di root yang sudah tidak ada di public/
+    # (mis. artikel yang dihapus) agar tidak tertinggal & ter-index Google.
+    managed = {"artikel", "kategori", "cari", "subwebs", "assets"}
+    for name in managed:
+        src = OUT / name
+        dst = ROOT / name
+        if src.is_dir():
+            dst.mkdir(parents=True, exist_ok=True)
+            for item in src.rglob("*"):
+                if item.is_file():
+                    rel = item.relative_to(src)
+                    dest = dst / rel
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    dest.write_bytes(item.read_bytes())
+            # hapus file di dst yang tidak ada di src
+            for item in dst.rglob("*"):
+                if item.is_file() and not (src / item.relative_to(dst)).exists():
+                    item.unlink(missing_ok=True)
+        elif dst.exists():
+            shutil.rmtree(dst, ignore_errors=True)
+    for rel in ("index.html", "search_index.json", "sitemap.xml", "rss.xml",
+                "robots.txt", "404.html", "favicon.svg", "perf-report.json",
+                "analytics-report.json"):
+        src = OUT / rel
+        if src.exists():
+            (ROOT / rel).write_bytes(src.read_bytes())
     print("✅ public/ disinkronkan ke root (Pages serve dari root)")
+
+
+def copy_subwebs() -> None:
+    """Salin staging subweb (root/subwebs/) ke public/subwebs/ sebelum sitemap."""
+    if SUBWEB_SRC.is_dir():
+        dst = OUT / "subwebs"
+        dst.mkdir(parents=True, exist_ok=True)
+        for f in SUBWEB_SRC.glob("*.html"):
+            (dst / f.name).write_bytes(f.read_bytes())
 
 
 # ---------------------------------------------------------------- build
@@ -658,6 +713,7 @@ def build() -> None:
             (OUT / "kategori" / f"{c['slug']}-{p}.html").write_text(render_category(d, c, page=p), encoding="utf-8")
     (OUT / "cari" / "index.html").write_text(render_search_page(d), encoding="utf-8")
     (OUT / "search_index.json").write_text(render_search_index(d), encoding="utf-8")
+    copy_subwebs()
     (OUT / "sitemap.xml").write_text(render_sitemap(d), encoding="utf-8")
     (OUT / "rss.xml").write_text(render_rss(d), encoding="utf-8")
     (OUT / "robots.txt").write_text(ROBOTS, encoding="utf-8")
