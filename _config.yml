@@ -1,29 +1,19 @@
 title: Aixwim News
 tagline: Berita Indonesia Terpercaya, Cepat, dan Akurat
-description: 'Portal berita Indonesia terpercaya: ekonomi, teknologi, nasional, bisnis,
-  dan pendidikan. Disajikan cepat, akurat, dan independen.'
-url: https:/.github.io
+description: 'Portal berita Indonesia terpercaya: ekonomi, teknologi, nasional, bisnis, dan pendidikan. Disajikan cepat, akurat, dan independen.'
+url: https://aixwim.github.io
 baseurl: /aixwim
 lang: id
+timezone: Asia/Jakarta
+future: true
 permalink: /artikel/:slug/
 plugins:
-- jekyll-sitemap
+  - jekyll-sitemap
 exclude:
-- README.md
-- Gemfile
-- Gemfile.lock
-- data
-- tools
-- docs
-- app
-- components
-- lib
-- scripts
-- node_modules
-- .next
-- venv
-- package.json
-- package-lock.json
-- next.config.mjs
-- public
-- .github
+  - README.md
+  - data
+  - tools
+  - venv
+  - .github
+  - .jekyll-cache
+  - .sass-cache

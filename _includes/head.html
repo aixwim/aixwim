@@ -3,6 +3,7 @@
 <title>{% if page.title and page.layout != 'home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
 <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">
 <meta name="keywords" content="berita indonesia, ekonomi, teknologi, nasional, bisnis, pendidikan{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}">
+{% if page.layout == 'post' %}<meta name="author" content="{{ page.author | default: site.data.meta.editor }}">{% endif %}
 <meta name="theme-color" content="#2563eb">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
@@ -12,6 +13,9 @@
 <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:locale" content="id_ID">
+{% if page.layout == 'post' %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+<meta property="article:section" content="{{ page.categories[0] | capitalize }}">
+{% if page.tags %}{% for t in page.tags %}<meta property="article:tag" content="{{ t }}">{% endfor %}{% endif %}{% endif %}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{% if page.title and page.layout != 'home' %}{{ page.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}">
 <meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">

@@ -1,8 +1,5 @@
 _site/
 .jekyll-cache/
-Gemfile.lock
+.sass-cache/
 venv/
-__pycache__/
-*.py[cod]
-.env
 .DS_Store

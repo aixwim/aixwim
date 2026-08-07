@@ -1,27 +1,58 @@
 # Aixwim News
 
-Portal berita Indonesia — dibangun dengan **Next.js 15** (static export), tanpa autopilot.
+Portal berita Indonesia — ekonomi, teknologi, nasional, bisnis, dan pendidikan.
+Statis, cepat, SEO-friendly. Dibangun dengan **Jekyll** + **GitHub Pages**.
 
-## Stack
-- Next.js (App Router, `output: 'export'`) → HTML statis di `docs/`
-- GitHub Pages (source: `main` branch, folder `/docs`)
-- Konten: `data/articles.json` (file-based CMS)
+## 🌐 Live
 
-## Perintah
-```bash
-npm install          # install dependencies
-npm run dev          # dev server
-npm run build        # generate rss.xml + next build + strip runtime JS → docs/
-npm run article -- "Topik berita"   # (opsional) tulis artikel via TERAI lalu append data
+https://aixwim.github.io/aixwim/
+
+## ⚡ Fitur
+
+- 100% statis: 1 request per halaman (CSS/JS inline), tanpa framework
+- SEO: JSON-LD (NewsArticle, WebSite, BreadcrumbList), sitemap, RSS, canonical
+- Pencarian real-time (Ctrl+/), tema 3-mode (light/dark/auto), dark mode otomatis
+- Share buttons (WA, X, FB, LinkedIn, Telegram), artikel terkait, back-to-top
+- Responsif + aksesibel (skip-link, aria, semantic HTML)
+
+## 📁 Struktur
+
+```
+_config.yml          → konfigurasi (url, baseurl, plugin)
+_layouts/            → default, home, post, kategori, cari, 404
+_includes/           → head, nav, footer, card + style.css + script.js
+_posts/*.md          → artikel (markdown + frontmatter)
+kategori/*.md        → halaman kategori
+cari/index.md        → halaman pencarian
+pages.yml            → konfigurasi Pages CMS
 ```
 
-## Tambah Artikel (manual)
-1. Edit `data/articles.json` (ikuti skema artikel yang ada) **atau**
-2. `npm run article -- "judul topik"` → TERAI menulis → otomatis di-append
-3. `npm run build && git add -A && git commit -m "feat: artikel baru" && git push`
+## ✍️ Kelola Konten
 
-## Fitur
-- 10 artikel, 5 kategori, pencarian real-time (tanpa JS eksternal)
-- JSON-LD: NewsArticle, BreadcrumbList, WebSite+SearchAction
-- RSS, sitemap, robots.txt, 404 custom, dark mode, share buttons
-- **1 request per halaman** (CSS/JS inline, tanpa dependensi eksternal) → Pagespeed optimal
+### Via Pages CMS (mudah)
+1. Buka https://pagescms.org → Connect with GitHub → login manual
+2. Pilih repo `aixwim` → menu **Artikel**
+3. Buat/edit post → setiap publish otomatis commit → situs langsung update
+
+### Via git (manual)
+```bash
+# Tambah artikel baru
+nano _posts/YYYY-MM-DD-judul-slug.md   # frontmatter: layout, title, categories, date, author, excerpt, reading_time, tags
+
+# Build lokal (opsional, perlu ruby/jekyll)
+jekyll build
+
+# Publish
+git add -A && git commit -m "artikel baru: ..." && git push
+```
+
+## 🏗️ Build Lokal
+
+```bash
+gem install jekyll jekyll-sitemap
+jekyll serve   # → http://localhost:4000/aixwim/
+```
+
+## 📄 Lisensi
+
+MIT © 2026 Aixwim News
