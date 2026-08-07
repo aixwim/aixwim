@@ -2,8 +2,8 @@
 NewsArticleGenerator — Generator artikel berita untuk Aixwim News Autopilot.
 
 Dua mode:
-  1. LLM mode  : pakai Ollama lokal (jika USE_LLM=1 dan server tersedia)
-  2. Template  : bank topik jurnalistik Indonesia (deterministik, tanpa dependensi)
+  1. AI mode   : pakai TERAI (``terai ask``) — provider/model dikelola TERAI
+  2. Template  : bank topik jurnalistik Indonesia (fallback deterministik)
 
 Output: dict artikel sesuai skema data/articles.json
         (slug, title, excerpt, category, author, date, reading_time, tags, image, content, related)
@@ -19,13 +19,11 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 try:
-    from core.config import AUTHOR, DATA_FILE, MODEL_NAME, OLLAMA_BASE_URL, USE_LLM
+    from core.config import AUTHOR, DATA_FILE, USE_TERAI
 except ImportError:
     AUTHOR = "Tim Redaksi Aixwim"
     DATA_FILE = Path("data/articles.json")
-    MODEL_NAME = "qwen2.5:1.5b"
-    OLLAMA_BASE_URL = "http://localhost:11434"
-    USE_LLM = False
+    USE_TERAI = True
 
 
 # ------------------------------------------------------------------ bank topik
@@ -161,34 +159,16 @@ def _now_iso(offset_hours: int = 7) -> str:
     return dt.strftime("%Y-%m-%dT%H:%M:%S+07:00")
 
 
-def _try_ollama(title: str, topic: str) -> dict | None:
-    """Coba generate konten via Ollama. Return None jika gagal/tidak tersedia."""
-    if not USE_LLM:
+def _try_terai(topic: str, existing_titles: list[str]) -> dict | None:
+    """Coba generate konten via AI TERAI. Return None jika gagal/tidak tersedia."""
+    if not USE_TERAI:
         return None
     try:
-        import urllib.request
+        from core.terai_client import generate_article
 
-        url = OLLAMA_BASE_URL.rstrip("/") + "/api/generate"
-        prompt = (
-            f"Tulis artikel berita bahasa Indonesia tentang: {topic}. "
-            f"Format JSON: {{\"title\": \"...\", \"content\": [\"paragraf1\", \"paragraf2\"]}} "
-            f"5-6 paragraf, gaya jurnalistik, tanpa markdown."
-        )
-        payload = json.dumps({"model": MODEL_NAME, "prompt": prompt, "stream": False, "options": {"num_predict": 900}}).encode()
-        req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=120) as resp:
-            data = json.loads(resp.read().decode())
-        text = data.get("response", "")
-        # cari blok JSON
-        m = re.search(r"\{.*\}", text, re.S)
-        if not m:
-            return None
-        parsed = json.loads(m.group(0))
-        content = parsed.get("content", [])
-        if not isinstance(content, list) or len(content) < 3:
-            return None
-        return {"title": parsed.get("title", title), "content": content}
-    except Exception:
+        return generate_article(topic["title"], topic["category"], existing_titles)
+    except Exception as exc:  # noqa: BLE001
+        print(f"⚠️ TERAI error: {exc} — fallback bank topik.")
         return None
 
 
@@ -204,14 +184,16 @@ class NewsArticleGenerator:
         pool = unused if unused else TOPICS
         topic = random.choice(pool)
 
-        # coba LLM dulu (opsional)
-        llm = _try_ollama(topic["title"], topic["title"])
+        # coba AI TERAI dulu (opsional; fallback ke bank topik)
+        existing_titles = [a["title"] for a in
+                           json.loads(DATA_FILE.read_text(encoding="utf-8")).get("articles", [])] if DATA_FILE.exists() else []
+        llm = _try_terai(topic, existing_titles)
         title = (llm or {}).get("title", topic["title"])
         content = (llm or {}).get("content", topic["content"])
 
         if llm:
-            excerpt = content[0][:150] + ("…" if len(content[0]) > 150 else "")
-            tags = topic["tags"]
+            excerpt = llm.get("excerpt") or content[0][:150] + ("…" if len(content[0]) > 150 else "")
+            tags = llm.get("tags") or topic["tags"]
         else:
             excerpt = topic["excerpt"]
             tags = topic["tags"]

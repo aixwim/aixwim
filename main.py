@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """
-Aixwim News Autopilot — pipeline utama.
+Aixwim News Autopilot — pipeline utama (AI: TERAI).
 
 Alur:
   1. Cek quota harian (quota_guard.json)
-  2. Generate artikel berita baru (LLM Ollama jika tersedia, fallback template)
+  2. Generate artikel berita baru — AI TERAI (``terai ask``) jika tersedia,
+     fallback bank topik jurnalistik bila TERAI tidak ada / gagal.
   3. Append ke data/articles.json
   4. Build seluruh situs (build_site.py → public/)
   5. Sinkron public/ → root, commit, push (GitHub Pages rebuild otomatis)
+
+Provider & model TIDAK dikonfigurasi di sini — semua dikelola TERAI.
 """
 
 import subprocess
@@ -16,7 +19,8 @@ import sys
 from agents.content.news_generator import NewsArticleGenerator, append_article
 from agents.director.deployer import git_auto_deploy
 from agents.director.quota_manager import check_quota_limit, increment_quota
-from core.config import BUILD_SCRIPT
+from core.config import BUILD_SCRIPT, USE_TERAI
+from core.terai_client import terai_available
 
 
 def build_site() -> bool:
@@ -34,6 +38,8 @@ def main() -> int:
         return 0
 
     print("🚀 Aixwim News Autopilot dimulai...")
+    terai_ok = USE_TERAI and terai_available()
+    print(f"🤖 AI engine : {'TERAI (terai ask)' if terai_ok else 'bank topik (fallback)'}")
 
     generator = NewsArticleGenerator()
     article = generator.generate()

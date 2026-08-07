@@ -24,9 +24,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run News Autopilot
+      - name: Run News Autopilot (fallback bank topik — TERAI hanya jalan lokal di Termux)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USE_TERAI: '0'
         run: |
           python main.py
 
