@@ -1,0 +1,4 @@
+---
+layout: cari
+permalink: /cari/
+---

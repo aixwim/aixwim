@@ -1,0 +1,19 @@
+<header class="nav" role="banner">
+  <div class="nav-inner">
+    <a class="brand" href="{{ '/' | relative_url }}"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 9h10M7 13h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Aixwim</a>
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a href="{{ '/' | relative_url }}">Beranda</a>
+      {% for c in site.data.categories %}<a href="{{ '/kategori/' | relative_url }}{{ c.slug }}/">{{ c.name }}</a>{% endfor %}
+    </nav>
+    <div class="nav-actions">
+      <a href="{{ '/cari/' | relative_url }}" class="icon-btn search-link" aria-label="Cari artikel" title="Cari (Ctrl+/)">🔍</a>
+      <button class="icon-btn" id="themeBtn" aria-label="Ganti tema" title="Tema: Light/Dark/Auto">🌓</button>
+      <button class="icon-btn burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="{{ '/' | relative_url }}">Beranda</a>
+  {% for c in site.data.categories %}<a href="{{ '/kategori/' | relative_url }}{{ c.slug }}/">{{ c.name }}</a>{% endfor %}
+  <a href="{{ '/cari/' | relative_url }}">🔍 Cari Artikel</a>
+</div>

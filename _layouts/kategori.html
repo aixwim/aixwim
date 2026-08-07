@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<div class="container">
+  <div class="kategori-head fade">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{ '/' | relative_url }}">Beranda</a><span>/</span><span>{{ page.name }}</span></nav>
+    <h1>{{ page.name }}</h1>
+    <p>{{ site.posts | where: 'categories', page.slug | size }} artikel</p>
+  </div>
+  <div class="cards">
+    {% for p in site.posts %}{% if p.categories[0] == page.slug %}{% include card.html post=p %}{% endif %}{% endfor %}
+  </div>
+</div>

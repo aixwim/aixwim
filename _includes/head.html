@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.layout != 'home' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">
+<meta name="keywords" content="berita indonesia, ekonomi, teknologi, nasional, bisnis, pendidikan{% if page.tags %}, {{ page.tags | join: ', ' }}{% endif %}">
+<meta name="theme-color" content="#2563eb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{% if page.title and page.layout != 'home' %}{{ page.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}">
+<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{% if page.title and page.layout != 'home' %}{{ page.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}">
+<meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | xml_escape | truncate: 160 }}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='3' y='4' width='18' height='16' rx='2' fill='%232563eb'/><path d='M7 9h10M7 13h6' stroke='white' stroke-width='2' stroke-linecap='round'/></svg>">
+<style>{% include style.css %}</style>

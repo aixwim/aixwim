@@ -1,0 +1,14 @@
+media: "assets"
+content:
+  - name: posts
+    label: Artikel
+    path: "_posts"
+    fields:
+      - { name: title, label: Judul }
+      - { name: categories, label: Kategori, widget: select, options: [ekonomi, teknologi, nasional, bisnis, pendidikan] }
+      - { name: date, label: Tanggal, widget: datetime }
+      - { name: author, label: Penulis }
+      - { name: excerpt, label: Ringkasan, widget: text }
+      - { name: reading_time, label: Waktu Baca }
+      - { name: tags, label: Tag, widget: list }
+      - { name: body, label: Isi Artikel, widget: markdown }

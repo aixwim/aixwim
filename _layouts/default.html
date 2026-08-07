@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>{% include head.html %}</head>
+<body>
+  <a class="skip-link" href="#content">Lewati ke konten</a>
+  {% include nav.html %}
+  <main id="content">{{ content }}</main>
+  {% include footer.html %}
+  <button id="toTop" aria-label="Kembali ke atas">↑</button>
+  <script>{% include script.js %}</script>
+</body>
+</html>

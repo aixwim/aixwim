@@ -1,0 +1,10 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>{{ site.title }}</h4><p style="color:var(--muted);font-size:.88rem">{{ site.description }}</p></div>
+      <div><h4>Kategori</h4><ul>{% for c in site.data.categories %}<li><a href="{{ '/kategori/' | relative_url }}{{ c.slug }}/">{{ c.name }}</a></li>{% endfor %}</ul></div>
+      <div><h4>Lainnya</h4><ul><li><a href="{{ '/cari/' | relative_url }}">🔍 Pencarian</a></li><li><a href="{{ '/rss.xml' | relative_url }}">📡 RSS Feed</a></li><li><a href="{{ '/sitemap.xml' | relative_url }}">🗺️ Sitemap</a></li></ul></div>
+    </div>
+    <div class="copy">© {{ 'now' | date: '%Y' }} {{ site.title }} · {{ site.data.meta.editor }} · {{ site.data.meta.established }}</div>
+  </div>
+</footer>
