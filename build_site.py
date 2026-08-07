@@ -303,16 +303,16 @@ def page_shell(title: str, desc: str, url: str, body: str, kind: str = "article"
 """
 
 
-def header_html(active: str = "") -> str:
+def header_html(active: str = "", p: str = "") -> str:
     d = data()
     cats = "".join(
-        f'<a href="kategori/{c["slug"]}.html"{" class=active" if active==c["slug"] else ""}>{escape(c["name"])}</a>'
+        f'<a href="{p}kategori/{c["slug"]}.html"{" class=active" if active==c["slug"] else ""}>{escape(c["name"])}</a>'
         for c in d["categories"]
     )
     return f"""<div class="topbar"><span>🔥 Berita terpercaya sejak 2026 · Independen & Akurat</span></div>
 <header class="site"><div class="wrap">
-<a class="brand" href="index.html"><span class="logo">A</span><span>Aixwim <em style="font-style:normal;color:var(--gold)">News</em></span></a>
-<nav class="main" id="mainNav" aria-label="Kategori"><a href="index.html">Beranda</a>{cats}</nav>
+<a class="brand" href="{p}index.html"><span class="logo">A</span><span>Aixwim <em style="font-style:normal;color:var(--gold)">News</em></span></a>
+<nav class="main" id="mainNav" aria-label="Kategori"><a href="{p}index.html">Beranda</a>{cats}</nav>
 <div class="nav-actions">
 <button class="icon-btn" id="searchBtn" type="button" aria-label="Cari berita" title="Cari (Ctrl+/)">🔍</button>
 <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema">🌓</button>
@@ -321,26 +321,26 @@ def header_html(active: str = "") -> str:
 </div></header>"""
 
 
-def footer_html() -> str:
+def footer_html(p: str = "") -> str:
     d = data()
-    cats = "".join(f'<li><a href="kategori/{c["slug"]}.html">{escape(c["name"])}</a></li>' for c in d["categories"])
-    hubs = subweb_links()
+    cats = "".join(f'<li><a href="{p}kategori/{c["slug"]}.html">{escape(c["name"])}</a></li>' for c in d["categories"])
+    hubs = subweb_links(p)
     return f"""<footer class="site"><div class="wrap">
 <div><h4>{escape(d["site"]["name"])}</h4><p>{escape(d["site"]["tagline"])}</p></div>
 <div><h4>Kategori</h4><ul>{cats}</ul></div>
 <div><h4>Hub</h4><ul>{hubs}</ul></div>
 <div><h4>Tentang</h4><ul>
-<li><a href="index.html">Beranda</a></li>
-<li><a href="cari/index.html">Pencarian</a></li>
-<li><a href="rss.xml">RSS Feed</a></li>
-<li><a href="sitemap.xml">Sitemap</a></li>
+<li><a href="{p}index.html">Beranda</a></li>
+<li><a href="{p}cari/index.html">Pencarian</a></li>
+<li><a href="{p}rss.xml">RSS Feed</a></li>
+<li><a href="{p}sitemap.xml">Sitemap</a></li>
 </ul></div>
 </div>
 <div class="copy">© {d["site"]["established"]} {escape(d["site"]["name"])} · {escape(d["site"]["editor"])} · Semua konten dilindungi hak cipta.</div>
 </footer>"""
 
 
-def subweb_links() -> str:
+def subweb_links(p: str = "") -> str:
     """Tautan ke halaman hub subweb (dari staging root/subwebs/)."""
     if not SUBWEB_SRC.is_dir():
         return ""
@@ -348,7 +348,7 @@ def subweb_links() -> str:
     for f in sorted(SUBWEB_SRC.glob("*.html")):
         slug = f.stem
         name = slug.replace("hub-", "").replace("-", " ").title() or slug
-        links.append(f'<li><a href="subwebs/{escape(slug)}.html">{escape(name)}</a></li>')
+        links.append(f'<li><a href="{p}subwebs/{escape(slug)}.html">{escape(name)}</a></li>')
     return "".join(links)
 
 
@@ -359,8 +359,8 @@ def subweb_urls() -> list[str]:
     return [f"{BASE}subwebs/{f.name}" for f in sorted(SUBWEB_SRC.glob("*.html"))]
 
 
-def hero_block(art: dict) -> str:
-    url = f'artikel/{art["slug"]}.html'
+def hero_block(art: dict, p: str = "") -> str:
+    url = f'{p}artikel/{art["slug"]}.html'
     return f"""<section class="hero"><div class="wrap">
 <span class="kicker">Berita Utama</span>
 <h1><a href="{url}">{escape(art["title"])}</a></h1>
@@ -369,11 +369,11 @@ def hero_block(art: dict) -> str:
 </div></section>"""
 
 
-def card_html(art: dict) -> str:
+def card_html(art: dict, p: str = "") -> str:
     cat = cat_by_slug(data(), art["category"])
     return f"""<article class="card">
 <span class="cat">{escape(cat["name"])}</span>
-<h3><a href="artikel/{art["slug"]}.html">{escape(art["title"])}</a></h3>
+<h3><a href="{p}artikel/{art["slug"]}.html">{escape(art["title"])}</a></h3>
 <p>{escape(art["excerpt"])}</p>
 <time datetime="{art["date"]}">{fmt_date(art["date"])}</time>
 </article>"""
@@ -401,24 +401,25 @@ def breadcrumb_ld(crumbs: list) -> str:
 
 # ---------------------------------------------------------------- renderers
 def render_index(d: dict) -> str:
+    p = ""
     arts = sorted(d["articles"], key=lambda a: a["date"], reverse=True)
-    hero = hero_block(arts[0])
+    hero = hero_block(arts[0], p)
     rest = arts[1:]
-    latest = "".join(card_html(a) for a in rest[:6])
+    latest = "".join(card_html(a, p) for a in rest[:6])
     blocks = []
     for cat in d["categories"]:
         items = [a for a in arts if a["category"] == cat["slug"]][:3]
         if not items:
             continue
-        cards = "".join(card_html(a) for a in items)
+        cards = "".join(card_html(a, p) for a in items)
         blocks.append(f"""<section class="block"><h2 class="sect">{escape(cat["name"])}</h2><div class="grid">{cards}</div></section>""")
-    body = f"""{header_html()}
+    body = f"""{header_html(p=p)}
 {hero}
 <main id="main"><div class="wrap">
 <section class="block"><h2 class="sect">Berita Terbaru</h2><div class="grid">{latest}</div></section>
 {"".join(blocks)}
 </div></main>
-{footer_html()}"""
+{footer_html(p)}"""
     website_ld = (
         '<script type="application/ld+json">{"@context":"https://schema.org",'
         '"@type":"WebSite","name":"' + d["site"]["name"] + '",'
@@ -442,6 +443,7 @@ def render_index(d: dict) -> str:
 
 
 def render_article(d: dict, art: dict) -> str:
+    p = "../"
     cat = cat_by_slug(d, art["category"])
     url = f"{BASE}artikel/{art['slug']}.html"
     paras = "".join(f"<p>{escape(p)}</p>" for p in art["content"])
@@ -459,7 +461,7 @@ def render_article(d: dict, art: dict) -> str:
         if a["slug"] not in seen:
             related.append(a)
             seen.add(a["slug"])
-    rel_cards = "".join(card_html(a) for a in related[:2]) if related else ""
+    rel_cards = "".join(card_html(a, p) for a in related[:2]) if related else ""
     rel_block = f"""<div class="related"><h3>Berita Terkait</h3><div class="grid">{rel_cards}</div></div>""" if rel_cards else ""
     jld = {
         "@context": "https://schema.org",
@@ -476,13 +478,13 @@ def render_article(d: dict, art: dict) -> str:
         "keywords": ", ".join(art.get("tags", [])),
         "wordCount": sum(len(p.split()) for p in art["content"]),
     }
-    bread = f"""<nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Beranda</a><span>›</span><a href="kategori/{cat['slug']}.html">{escape(cat["name"])}</a><span>›</span><span aria-current="page">Artikel</span></nav>"""
+    bread = f"""<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{p}index.html">Beranda</a><span>›</span><a href="{p}kategori/{cat['slug']}.html">{escape(cat["name"])}</a><span>›</span><span aria-current="page">Artikel</span></nav>"""
     bld = breadcrumb_ld([
         ("Beranda", BASE),
         (cat["name"], f"{BASE}kategori/{cat['slug']}.html"),
         (art["title"], url),
     ])
-    body = f"""{header_html(active=cat["slug"])}
+    body = f"""{header_html(active=cat["slug"], p=p)}
 <main id="main"><div class="wrap">
 <article class="article-body">
 {bread}
@@ -496,11 +498,12 @@ def render_article(d: dict, art: dict) -> str:
 </div></main>
 <script type="application/ld+json">{json.dumps(jld, ensure_ascii=False)}</script>
 {bld}
-{footer_html()}"""
+{footer_html(p)}"""
     return page_shell(art["title"], art["excerpt"], url, body, kind="article")
 
 
 def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str:
+    p = "../"
     arts = [a for a in d["articles"] if a["category"] == cat["slug"]]
     arts.sort(key=lambda a: a["date"], reverse=True)
     total = len(arts)
@@ -508,13 +511,13 @@ def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str
     page = min(max(1, page), pages)
     slice_arts = arts[(page - 1) * per_page: page * per_page]
     url = f"{BASE}kategori/{cat['slug']}.html" if page == 1 else f"{BASE}kategori/{cat['slug']}-{page}.html"
-    cards = "".join(card_html(a) for a in slice_arts)
+    cards = "".join(card_html(a, p) for a in slice_arts)
     # pagination
     pag = ""
     if pages > 1:
         links = []
         for i in range(1, pages + 1):
-            href = f"kategori/{cat['slug']}.html" if i == 1 else f"kategori/{cat['slug']}-{i}.html"
+            href = f"{p}kategori/{cat['slug']}.html" if i == 1 else f"{p}kategori/{cat['slug']}-{i}.html"
             if i == page:
                 links.append(f'<span class="cur" aria-current="page">{i}</span>')
             else:
@@ -524,7 +527,7 @@ def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str
         ("Beranda", BASE),
         (cat["name"], url),
     ])
-    body = f"""{header_html(active=cat["slug"])}
+    body = f"""{header_html(active=cat["slug"], p=p)}
 <main id="main"><div class="wrap">
 <section class="block" style="margin-top:1.75rem">
 <h2 class="sect">Kategori: {escape(cat["name"])}</h2>
@@ -534,7 +537,7 @@ def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str
 </section>
 </div></main>
 {bld}
-{footer_html()}"""
+{footer_html(p)}"""
     return page_shell(
         f"{cat['name']} — {d['site']['name']}",
         cat.get("description", f"Berita kategori {cat['name']} di {d['site']['name']}"),
@@ -545,8 +548,9 @@ def render_category(d: dict, cat: dict, page: int = 1, per_page: int = 6) -> str
 
 
 def render_search_page(d: dict) -> str:
+    p = "../"
     url = f"{BASE}cari/"
-    body = f"""{header_html()}
+    body = f"""{header_html(p=p)}
 <main id="main"><div class="wrap">
 <section class="block" style="margin-top:1.75rem" id="searchPage">
 <h2 class="sect">Pencarian</h2>
@@ -554,7 +558,7 @@ def render_search_page(d: dict) -> str:
 <div class="search-results" id="searchResults" style="width:100%;margin-top:.9rem;box-shadow:none;border:1px solid var(--line);max-height:none"></div>
 </section>
 </div></main>
-{footer_html()}"""
+{footer_html(p)}"""
     return page_shell(
         f"Pencarian — {d['site']['name']}",
         f"Cari berita di {d['site']['name']}.",
@@ -625,13 +629,14 @@ def render_rss(d: dict) -> str:
 
 
 def render_404(d: dict) -> str:
-    body = f"""{header_html()}
+    p = ""
+    body = f"""{header_html(p=p)}
 <main id="main"><div class="notfound">
 <h1>404</h1>
 <p style="font-size:1.1rem;color:var(--mut)">Halaman yang Anda cari tidak ditemukan atau telah dipindahkan.</p>
-<p style="margin-top:1rem"><a href="index.html" style="display:inline-block;color:var(--blue);font-weight:700">← Kembali ke Beranda</a></p>
+<p style="margin-top:1rem"><a href="{p}index.html" style="display:inline-block;color:var(--blue);font-weight:700">← Kembali ke Beranda</a></p>
 </div></main>
-{footer_html()}"""
+{footer_html(p)}"""
     return page_shell(
         "Halaman Tidak Ditemukan — Aixwim News",
         "Halaman yang Anda cari tidak ditemukan.",
@@ -684,13 +689,42 @@ def sync_to_root() -> None:
     print("✅ public/ disinkronkan ke root (Pages serve dari root)")
 
 
+def rewrite_subweb(html: str, name: str) -> str:
+    """Normalisasi link relatif subweb agar benar dari folder subwebs/.
+
+    - Semua href relatif (artikel/, kategori/, index.html, rss.xml, dll)
+      diberi prefix '../' karena subweb berada satu level di bawah root.
+    - Suntikkan <link rel="canonical"> bila belum ada (SEO).
+    """
+    def fix(m):
+        h = m.group(1)
+        # skip anchor, absolut, protokol, JS template, query
+        if (h.startswith(("http", "#", "mailto:", "tel:", "data:", "//", "'", "{"))
+                or "://" in h or "BASE" in h or "+" in h or "{" in h or "}" in h):
+            return m.group(0)
+        if h.startswith("../"):
+            return m.group(0)
+        return f'href="../{h}"'
+    html = re.sub(r'href="([^"]+)"', fix, html)
+    if 'rel="canonical"' not in html:
+        canon = f'<link rel="canonical" href="{BASE}subwebs/{name}.html">'
+        if '<meta name="viewport"' in html:
+            html = html.replace('<meta name="viewport"', canon + '\n<meta name="viewport"', 1)
+        elif '<head>' in html:
+            html = html.replace('<head>', '<head>\n' + canon, 1)
+        else:
+            html = html.replace('<html', '<html>\n<head>\n' + canon + '\n</head>', 1) if '<html' in html else canon + html
+    return html
+
+
 def copy_subwebs() -> None:
-    """Salin staging subweb (root/subwebs/) ke public/subwebs/ sebelum sitemap."""
+    """Salin staging subweb (root/subwebs/) ke public/subwebs/ + rewrite link."""
     if SUBWEB_SRC.is_dir():
         dst = OUT / "subwebs"
         dst.mkdir(parents=True, exist_ok=True)
         for f in SUBWEB_SRC.glob("*.html"):
-            (dst / f.name).write_bytes(f.read_bytes())
+            html = f.read_text(encoding="utf-8")
+            (dst / f.name).write_text(rewrite_subweb(html, f.stem), encoding="utf-8")
 
 
 # ---------------------------------------------------------------- build
