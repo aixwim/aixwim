@@ -9,13 +9,60 @@
     "established": "2026"
   },
   "categories": [
-    {"slug": "ekonomi", "name": "Ekonomi", "description": "Makroekonomi, keuangan, dan pasar"},
-    {"slug": "teknologi", "name": "Teknologi", "description": "AI, startup, dan inovasi digital"},
-    {"slug": "nasional", "name": "Nasional", "description": "Kebijakan dan perkembangan nasional"},
-    {"slug": "bisnis", "name": "Bisnis", "description": "Korporasi, UMKM, dan investasi"},
-    {"slug": "pendidikan", "name": "Pendidikan", "description": "Kurikulum dan dunia pendidikan"}
+    {
+      "slug": "ekonomi",
+      "name": "Ekonomi",
+      "description": "Makroekonomi, keuangan, dan pasar"
+    },
+    {
+      "slug": "teknologi",
+      "name": "Teknologi",
+      "description": "AI, startup, dan inovasi digital"
+    },
+    {
+      "slug": "nasional",
+      "name": "Nasional",
+      "description": "Kebijakan dan perkembangan nasional"
+    },
+    {
+      "slug": "bisnis",
+      "name": "Bisnis",
+      "description": "Korporasi, UMKM, dan investasi"
+    },
+    {
+      "slug": "pendidikan",
+      "name": "Pendidikan",
+      "description": "Kurikulum dan dunia pendidikan"
+    }
   ],
   "articles": [
+    {
+      "slug": "bank-indonesia-pertahankan-suku-bunga-nilai-tukar-dan-inflasi-terkendali",
+      "title": "Bank Indonesia Pertahankan Suku Bunga, Nilai Tukar dan Inflasi Terkendali",
+      "excerpt": "Rapat Dewan Gubernur Bank Indonesia memutuskan mempertahankan suku bunga acuan dengan inflasi terjaga dan nilai tukar rupiah yang stabil.",
+      "category": "ekonomi",
+      "author": "Tim Redaksi Aixwim",
+      "date": "2026-08-08T00:41:43+07:00",
+      "reading_time": "3 menit",
+      "tags": [
+        "Bank Indonesia",
+        "suku bunga",
+        "nilai tukar"
+      ],
+      "image": null,
+      "content": [
+        "JAKARTA, Aixwim News — Rapat Dewan Gubernur Bank Indonesia yang berlangsung dua hari memutuskan untuk mempertahankan suku bunga acuan pada level saat ini. Keputusan ini ditempuh untuk menjaga stabilitas nilai tukar dan mengendalikan inflasi.",
+        "Gubernur Bank Indonesia menyatakan inflasi inti tetap terkendali di bawah 3 persen, sementara inflasi tahunan berada di tengah sasaran 2,5±1 persen. \"Kebijakan moneter yang konsisten menjaga stabilitas adalah prasyarat pertumbuhan berkelanjutan,\" ujarnya.",
+        "Nilai tukar rupiah tercatat stabil di kisaran Rp 15.400 per dolar AS, ditopang aliran modal asing dan surplus neraca perdagangan. Cadangan devisa berada di level US$ 152 miliar, setara pembiayaan 7,2 bulan impor.",
+        "Bank Indonesia juga memperkuat bauran kebijakan melalui operasi moneter pro-market dan stimulus likuiditas bagi sektor prioritas, termasuk perumahan, otomotif, dan pariwisata. Insentif ini diharapkan mendorong pertumbuhan kredit di kisaran 11 persen.",
+        "Ekonom dari lembaga riset menilai ruang pelonggaran moneter masih terbuka pada kuartal berikutnya jika inflasi terus melandai dan rupiah stabil. \"Suku bunga berpeluang turun 25 basis poin, namun harus menunggu dinamika global,\" ungkapnya.",
+        "Bank Indonesia menegaskan komitmennya untuk terus mengawal stabilitas moneter dan memperkuat sinergi dengan pemerintah melalui forum koordinasi untuk memastikan pemulihan ekonomi yang inklusif."
+      ],
+      "related": [
+        "program-ai-nasional-100-ribu-talenta-2027",
+        "startup-indonesia-pendanaan-25-triliun-2026"
+      ]
+    },
     {
       "slug": "ekonomi-digital-indonesia-tumbuh-12-persen-2026",
       "title": "Ekonomi Digital Indonesia Tumbuh 12 Persen di 2026, Dorong UMKM Naik Kelas",
@@ -24,7 +71,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-07T08:30:00+07:00",
       "reading_time": "4 menit",
-      "tags": ["ekonomi digital", "UMKM", "pembayaran digital"],
+      "tags": [
+        "ekonomi digital",
+        "UMKM",
+        "pembayaran digital"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Ekonomi digital Indonesia mencatat pertumbuhan 12 persen pada paruh pertama 2026, didorong oleh meningkatnya adopsi pembayaran digital dan perluasan akses internet hingga ke daerah terpencil. Angka ini lebih tinggi dibandingkan pertumbuhan 9,8 persen pada periode yang sama tahun lalu.",
@@ -34,7 +85,10 @@
         "Pemerintah menargetkan 40 juta UMKM terdigitalisasi pada akhir 2027. Program pendampingan dan pelatihan digital gratis akan diperluas ke 514 kabupaten dan kota, dengan fokus pada akses permodalan melalui Kredit Usaha Rakyat digital.",
         "Kendati optimistis, para pengamat mengingatkan pentingnya menjaga keamanan siber dan perlindungan data konsumen agar pertumbuhan ekonomi digital tidak diikuti meningkatnya risiko penipuan daring. Regulasi Perlindungan Data Pribadi (UU PDP) diharapkan menjadi payung hukum yang memperkuat kepercayaan publik."
       ],
-      "related": ["startup-indonesia-pendanaan-25-triliun-2026", "rupiah-menguat-inflasi-28-persen"]
+      "related": [
+        "startup-indonesia-pendanaan-25-triliun-2026",
+        "rupiah-menguat-inflasi-28-persen"
+      ]
     },
     {
       "slug": "program-ai-nasional-100-ribu-talenta-2027",
@@ -44,7 +98,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-06T10:15:00+07:00",
       "reading_time": "5 menit",
-      "tags": ["AI", "talenta digital", "kedaulatan digital"],
+      "tags": [
+        "AI",
+        "talenta digital",
+        "kedaulatan digital"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Pemerintah resmi meluncurkan Program AI Nasional 2026-2030, sebuah inisiatif besar untuk membangun ekosistem kecerdasan artifisial yang mandiri dan berdaya saing global. Program ini menargetkan pembentukan 100 ribu talenta AI profesional pada 2027.",
@@ -54,7 +112,10 @@
         "Kalangan pelaku industri menyambut positif program ini. Ketua Asosiasi AI Indonesia menilai ketersediaan talenta adalah hambatan terbesar pertumbuhan AI lokal selama ini. \"Dengan target 100 ribu talenta, Indonesia bisa memenuhi kebutuhan 70 persen talenta AI secara mandiri pada 2029,\" katanya.",
         "Pemerintah juga menyiapkan peta jalan etika AI dan tata kelola data yang selaras dengan nilai-nilai kebangsaan. Badan AI Nasional akan dibentuk untuk mengoordinasikan seluruh inisiatif, termasuk audit algoritma dan perlindungan hak cipta konten yang dihasilkan AI."
       ],
-      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "kurikulum-ai-masuk-sekolah-2027"]
+      "related": [
+        "ekonomi-digital-indonesia-tumbuh-12-persen-2026",
+        "kurikulum-ai-masuk-sekolah-2027"
+      ]
     },
     {
       "slug": "rupiah-menguat-inflasi-28-persen",
@@ -64,7 +125,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-05T09:00:00+07:00",
       "reading_time": "3 menit",
-      "tags": ["rupiah", "inflasi", "bank sentral"],
+      "tags": [
+        "rupiah",
+        "inflasi",
+        "bank sentral"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Nilai tukar rupiah menguat ke level Rp 15.400 per dolar AS pada perdagangan Rabu, naik 1,2 persen dalam sepekan terakhir. Penguatan ini didorong arus modal asing yang kembali masuk ke pasar obligasi dan saham domestik.",
@@ -74,7 +139,10 @@
         "Meski demikian, volatilitas global tetap menjadi risiko utama. Bank Indonesia akan terus melakukan intervensi pasar untuk menjaga stabilitas nilai tukar sesuai fundamental, termasuk melalui operasi moneter dan instrumen Sekuritas Rupiah Bank Indonesia.",
         "Pemerintah optimistis momentum penguatan rupiah akan berlanjut hingga akhir tahun seiring membaiknya neraca perdagangan dan realisasi investasi asing yang ditargetkan tumbuh 18 persen pada 2026."
       ],
-      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "industri-game-indonesia-ekspor-naik-45"]
+      "related": [
+        "ekonomi-digital-indonesia-tumbuh-12-persen-2026",
+        "industri-game-indonesia-ekspor-naik-45"
+      ]
     },
     {
       "slug": "startup-indonesia-pendanaan-25-triliun-2026",
@@ -84,7 +152,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-04T14:20:00+07:00",
       "reading_time": "4 menit",
-      "tags": ["startup", "pendanaan", "venture capital"],
+      "tags": [
+        "startup",
+        "pendanaan",
+        "venture capital"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Startup Indonesia mencatat total pendanaan sebesar Rp 25 triliun pada semester pertama 2026, tumbuh 28 persen dibandingkan periode yang sama tahun lalu. Sektor fintech, kecerdasan artifisial, dan logistik menjadi tiga besar penerima dana.",
@@ -94,7 +166,10 @@
         "Ia menambahkan, tren pendanaan mulai bergeser ke perusahaan deep-tech dan AI terapan untuk sektor agrikultur, kesehatan, dan pendidikan. Model bisnis yang mengedepankan profitabilitas lebih diminati dibandingkan pertumbuhan agresif yang merugi.",
         "Para analis memperkirakan total pendanaan sepanjang 2026 akan menembus Rp 55 triliun, melampaui rekor 2021. Risiko utama yang perlu diwaspadai adalah persaingan talenta dan kepastian regulasi di tengah cepatnya adopsi AI di seluruh sektor."
       ],
-      "related": ["ekonomi-digital-indonesia-tumbuh-12-persen-2026", "industri-game-indonesia-ekspor-naik-45"]
+      "related": [
+        "ekonomi-digital-indonesia-tumbuh-12-persen-2026",
+        "industri-game-indonesia-ekspor-naik-45"
+      ]
     },
     {
       "slug": "kurikulum-ai-masuk-sekolah-2027",
@@ -104,7 +179,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-03T07:45:00+07:00",
       "reading_time": "4 menit",
-      "tags": ["kurikulum", "AI", "sekolah"],
+      "tags": [
+        "kurikulum",
+        "AI",
+        "sekolah"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Kementerian Pendidikan Dasar dan Menengah mengumumkan integrasi literasi kecerdasan artifisial ke dalam kurikulum sekolah menengah mulai tahun ajaran 2027. Mata pelajaran baru ini akan mencakup pengenalan AI, etika digital, dan pemrograman dasar.",
@@ -114,7 +193,10 @@
         "Praktisi pendidikan menyambut baik langkah ini namun mengingatkan kesenjangan infrastruktur antar daerah. Ketua Federasi Guru Indonesia meminta pemerintah memprioritaskan sekolah di daerah tertinggal agar kesenjangan digital tidak semakin melebar.",
         "Kementerian menjamin penyediaan perangkat hybrid dan konten yang dapat diakses secara offline untuk sekolah di daerah tanpa jaringan stabil. Evaluasi berkala akan dilakukan setiap semester untuk memastikan efektivitas pembelajaran dan kesiapan guru di lapangan."
       ],
-      "related": ["program-ai-nasional-100-ribu-talenta-2027", "ekonomi-digital-indonesia-tumbuh-12-persen-2026"]
+      "related": [
+        "program-ai-nasional-100-ribu-talenta-2027",
+        "ekonomi-digital-indonesia-tumbuh-12-persen-2026"
+      ]
     },
     {
       "slug": "industri-game-indonesia-ekspor-naik-45",
@@ -124,7 +206,11 @@
       "author": "Tim Redaksi Aixwim",
       "date": "2026-08-02T11:30:00+07:00",
       "reading_time": "4 menit",
-      "tags": ["game", "industri kreatif", "ekspor"],
+      "tags": [
+        "game",
+        "industri kreatif",
+        "ekspor"
+      ],
       "image": null,
       "content": [
         "JAKARTA, Aixwim News — Industri game Indonesia mencatat pertumbuhan ekspor sebesar 45 persen pada paruh pertama 2026, mencapai nilai US$ 180 juta. Pencapaian ini menjadikan game sebagai salah satu penyumbang devisa terbesar dari sektor ekonomi kreatif.",
@@ -134,7 +220,10 @@
         "Pelaku industri menyoroti tantangan pendanaan tahap awal dan regenerasi talenta. Asosiasi Game Indonesia mendorong pembentukan program magang nasional yang menghubungkan 100 ribu lulusan SMK dan sarjana dengan studio game lokal.",
         "Dengan dukungan ekosistem yang terus membaik, para pengamat meyakini Indonesia berpotensi menjadi hub game terbesar kedua di Asia Tenggara setelah Singapura dalam lima tahun ke depan."
       ],
-      "related": ["startup-indonesia-pendanaan-25-triliun-2026", "ekonomi-digital-indonesia-tumbuh-12-persen-2026"]
+      "related": [
+        "startup-indonesia-pendanaan-25-triliun-2026",
+        "ekonomi-digital-indonesia-tumbuh-12-persen-2026"
+      ]
     }
   ]
 }
